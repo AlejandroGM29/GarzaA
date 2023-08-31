@@ -26,11 +26,14 @@
     const apiButton = document.getElementById("apiButton");
     const responseDiv = document.getElementById("response");
     const nombreHeader = document.getElementById("Nombre");
+    
     apiButtonAxios.addEventListener("click", function() {
         // Realizar la petición a la API utilizando Axios
         axios.get("https://pokeapi.co/api/v2/pokemon/bulbasaur")
             .then(response => {
                 const data = response.data;
+                nombreHeader.textContent = '';
+                responseDiv.textContent = "";
                 // Manipular los datos de la respuesta de la API
                 console.log(data);
                 nombreHeader.textContent = data.species.name;
