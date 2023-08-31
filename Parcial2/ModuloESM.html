@@ -36,11 +36,17 @@
     </div>
 </body>
 <script type="module">
-import { obtenerColorTipo } from './prueba.js'; // Import the specific function from the module
+/*import { obtenerColorTipo } from './prueba.js'; // Import the specific function from the module
 
 document.getElementById('btnenviar').addEventListener('click', function(){
     const tipo = document.getElementById('inpColor').value;
     document.getElementById('color').style.backgroundColor = obtenerColorTipo(tipo);
+}); */
+document.getElementById('btnenviar').addEventListener('click', function(){
+    import("./prueba.js").then(function(modulos){
+        const tipo = document.getElementById('inpColor').value; // Use .value to get the input value
+        document.getElementById('color').style.backgroundColor = modulos.obtenerColorTipo(tipo);
+    });
 });
 </script>
 </html>
